@@ -1,1 +1,55 @@
+.gameArea {
+display: flex;
+justify-content: center;
+}
 
+.header {
+  font-size: 60px;
+  margin: 5px;
+  display: block;
+  text-align: center;
+}
+
+.card {
+  height: 150px;
+  width: 100px;
+  margin: 8.33px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.container {
+  display: flex;
+  margin: 5px;
+}
+
+.subStats {
+  width: 200px;
+  margin: 10px;
+}
+
+.stats {
+  width: 225px;
+  text-align: center;
+}
+
+.cardBox {
+  flex-wrap: wrap;
+  width: 720px;
+}
+
+.border {
+  border: 1px;
+  border-style: solid;
+}
+
+.front {
+  background-image: url(/assets/images/lfz-card.jpg);
+  height: 100px;
+  width: 150px;
+}
+
+.back {
+  height: 100px;
+  width: 150px;
+}
