@@ -10,22 +10,24 @@ justify-content: center;
   text-align: center;
 }
 
-.card {
+.card .card2 .card3 .card4 .card5 .card6 .card7 .card8 .card9 .card10 .card11 .card12 .card13 .card14 .card15 .card16 .card17 .card18 {
   height: 150px;
   width: 100px;
   margin: 8.33px;
   margin-top: 15px;
   margin-bottom: 15px;
+  position: relative;
 }
 
 .container {
   display: flex;
-  margin: 5px;
+
 }
 
 .subStats {
   width: 200px;
   margin: 10px;
+  background-color: lightseagreen;
 }
 
 .stats {
@@ -39,17 +41,84 @@ justify-content: center;
 }
 
 .border {
-  border: 1px;
-  border-style: solid;
+  border: 1px solid black;
 }
 
 .front {
-  background-image: url(/assets/images/lfz-card.jpg);
-  height: 100px;
-  width: 150px;
+  background-size: cover;
+  background-position: center;
+  height: 150px;
+  width: 100px;
+  position: absolute;
 }
 
-.back {
-  height: 100px;
-  width: 150px;
+.backSize {
+  height: 150px;
+  width: 100px;
+}
+
+
+body{
+  background-color: #e6c059;
+}
+
+.frontImg{
+  background-image: url("../images/lfz-card.jpg");
+}
+
+.cssLogo{
+  background-image: url('../images/css-logo.png');
+  background-size: cover;
+  background-position: center;
+}
+
+.dockerLogo{
+  background-image: url('../images/docker-logo.jpg');
+    background-size: cover;
+  background-position: center;
+}
+
+.gitHub{
+  background-image: url('../images/gitHub-logo.png');
+  background-size: cover;
+  background-position: center;
+}
+
+.htmlLogo{
+  background-image: url('../images/html-logo.png');
+  background-size: cover;
+  background-position: center;
+}
+.jsLogo{
+  background-image: url('../images/js-logo.png');
+  background-size: cover;
+  background-position: center;
+}
+
+.mysqlLogo{
+  background-image: url('../images/mysql-logo.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.nodeLogo{
+  background-image: url('../images/node-logo.png');
+  background-size: cover;
+  background-position: center;
+}
+
+.phpLogo{
+  background-image: url('../images/php-logo.jpeg');
+  background-size: cover;
+  background-position: center;
+}
+
+.reactLogo{
+  background-image: url('../images/react-logo.png');
+  background-size: cover;
+  background-position: center;
+}
+
+.hidden{
+  display: none;
 }
