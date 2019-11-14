@@ -48,6 +48,7 @@
 }
 
 .subStats {
+  height: 12%;
   width: 80%;
   margin: 1vmin;
   background-color: lightseagreen;
