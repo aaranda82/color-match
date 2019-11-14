@@ -1,6 +1,29 @@
+.gameWon{
+  height: 30%;
+  width: 30%;
+  background-color: yellowgreen;
+  border: 2px solid black;
+  border-radius: 46px;
+  top: 31%;
+  left: 44%;
+  position: absolute;
+  text-align: center;
+  z-index: 1;
+}
+
+.resetGame{
+  height: 18%;
+  width: 43%;
+  border: 3px solid black;
+  border-radius: 10px;
+  background-color: blue;
+  position: absolute;
+  top: 60%;
+  left: 28%;
+}
 .gameArea {
-display: flex;
-justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .header {
@@ -10,12 +33,12 @@ justify-content: center;
   text-align: center;
 }
 
-.card .card2 .card3 .card4 .card5 .card6 .card7 .card8 .card9 .card10 .card11 .card12 .card13 .card14 .card15 .card16 .card17 .card18 {
-  height: 150px;
-  width: 100px;
+.card{
+  height: 15vmin;
+  width: 13vmin;
   margin: 8.33px;
-  margin-top: 15px;
-  margin-bottom: 15px;
+  margin-top: 4vmin;
+  margin-bottom: 4vmin;
   position: relative;
 }
 
@@ -25,19 +48,14 @@ justify-content: center;
 }
 
 .subStats {
-  width: 200px;
-  margin: 10px;
+  width: 80%;
+  margin: 1vmin;
   background-color: lightseagreen;
 }
 
 .stats {
-  width: 225px;
+  width: 30vmin;
   text-align: center;
-}
-
-.cardBox {
-  flex-wrap: wrap;
-  width: 720px;
 }
 
 .border {
@@ -47,14 +65,14 @@ justify-content: center;
 .front {
   background-size: cover;
   background-position: center;
-  height: 150px;
-  width: 100px;
+  height: 100%;
+  width: 100%;
   position: absolute;
 }
 
 .back {
-  height: 150px;
-  width: 100px;
+  height: 100%;
+  width: 100%;
 }
 
 
