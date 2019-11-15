@@ -156,8 +156,11 @@ body{
 .key {
   height: 13vh;
   width: 45vw;
-  background-color: white;
   border-radius: 20px;
+  margin: .5%;
+  right: 39%;
+  position: relative;
+  background-color: yellow;
 }
 
 .extendBtn {
@@ -166,20 +169,22 @@ body{
   border-radius: 50px;
   height: 60px;
   width: 60px;
-  position: relative;
-  left: 482px;
-  bottom: 78px;
+  position: absolute;
+  left: 87%;
+  bottom: 19%;
 }
 
 .instructions {
   height: 98%;
   width: 50%;
-  border: 1px solid black;
   position: relative;
   left: 20%;
+  font-size: 21px;
+  font-family: cursive;
 }
 
-.movDiv {
-  transform: translate(200px);
+.move:hover {
+  transform: translate(80%);
   transition: 1s;
+
 }
