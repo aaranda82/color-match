@@ -1,26 +1,36 @@
-.gameWon{
-  height: 30%;
-  width: 30%;
-  background-color: yellowgreen;
-  border: 2px solid black;
+.goal{
+  height: 60%;
+  width: 60%;
+  background-size: cover;
+  background-position: center;
+  border: 10px solid white;
   border-radius: 46px;
-  top: 31%;
-  left: 44%;
+  top: 16%;
+  left: 29.5%;
   position: absolute;
   text-align: center;
   z-index: 1;
+  font-size: 54px;
+}
+
+.goalImg{
+  background-image: url('../images/soccer-images/game-won.jpg');
+}
+
+.worldCupChamps{
+  background-Image: url('../images/soccer-images/worldcupchamps.jpg');
 }
 
 .resetGame{
-  height: 18%;
-  width: 43%;
   border: 3px solid black;
   border-radius: 10px;
-  background-color: blue;
+  background-color: ;
   position: absolute;
-  top: 60%;
+  top: 11%;
   left: 28%;
+  font-size: 30px;
 }
+
 .gameArea {
   display: flex;
   justify-content: center;
@@ -28,23 +38,25 @@
 
 .header {
   font-size: 60px;
+  color: yellow;
   margin: 5px;
   display: block;
   text-align: center;
+  text-shadow: 2px 2px #000, -2px 2px #000, 2px -2px #000, -2px -2px #000;
 }
 
 .card{
-  height: 15vmin;
-  width: 13vmin;
-  margin: 8.33px;
-  margin-top: 4vmin;
-  margin-bottom: 4vmin;
-  position: relative;
+height: 15vh;
+    width: 13%;
+    margin: 10px;
+    margin-top: 5%;
+    position: relative;
 }
 
 .container {
   display: flex;
-
+  flex-wrap: wrap;
+  width: 100vmin;
 }
 
 .subStats {
@@ -60,7 +72,7 @@
 }
 
 .border {
-  border: 1px solid black;
+  border: 3px solid white;
 }
 
 .front {
@@ -78,66 +90,96 @@
 
 
 body{
-  background-color: #e6c059;
+  background-image: url('../images/soccer-images/penaltykick.jpg');
+  background-size: cover;
+
 }
 
 .frontImg{
-  background-image: url("../images/lfz-card.jpg");
+  background-image: url("../images/soccer-images/barca-crest-1.jpg");
 }
 
-.cssLogo{
-  background-image: url('../images/css-logo.png');
-  background-size: cover;
-  background-position: center;
+.adidas2{
+  background-image: url('../images/soccer-images/adidas2-2.jpg');
+
 }
 
-.dockerLogo{
-  background-image: url('../images/docker-logo.jpg');
-    background-size: cover;
-  background-position: center;
+.adidas3{
+  background-image: url('../images/soccer-images/adidas3.jpg');
+
 }
 
-.gitHub{
-  background-image: url('../images/gitHub-logo.png');
-  background-size: cover;
-  background-position: center;
+.adidas4{
+  background-image: url('../images/soccer-images/adidas4.jpg');
+
 }
 
-.htmlLogo{
-  background-image: url('../images/html-logo.png');
-  background-size: cover;
-  background-position: center;
+.nike1{
+  background-image: url('../images/soccer-images/nike1.jpg');
+
 }
-.jsLogo{
-  background-image: url('../images/js-logo.png');
-  background-size: cover;
-  background-position: center;
+.nike2{
+  background-image: url('../images/soccer-images/nike2.jpg');
+
 }
 
-.mysqlLogo{
-  background-image: url('../images/mysql-logo.jpg');
-  background-size: cover;
-  background-position: center;
+.nike3{
+  background-image: url('../images/soccer-images/nike3.jpg');
+
 }
 
-.nodeLogo{
-  background-image: url('../images/node-logo.png');
-  background-size: cover;
-  background-position: center;
+.puma1{
+  background-image: url('../images/soccer-images/puma1.jpg');
+
 }
 
-.phpLogo{
-  background-image: url('../images/php-logo.jpeg');
-  background-size: cover;
-  background-position: center;
+.puma2{
+  background-image: url('../images/soccer-images/puma2.jpg');
+
 }
 
-.reactLogo{
-  background-image: url('../images/react-logo.png');
+.puma3{
+  background-image: url('../images/soccer-images/puma3.jpg');
+
+}
+
+.ballBackground{
   background-size: cover;
   background-position: center;
+  border-radius: 50px;
 }
 
 .hidden{
   display: none;
+}
+
+.key {
+  height: 13vh;
+  width: 45vw;
+  background-color: white;
+  border-radius: 20px;
+}
+
+.extendBtn {
+  background-image: url('../images/soccer-images/classicBall-2.jpg');
+  background-size: cover;
+  border-radius: 50px;
+  height: 60px;
+  width: 60px;
+  position: relative;
+  left: 482px;
+  bottom: 78px;
+}
+
+.instructions {
+  height: 98%;
+  width: 50%;
+  border: 1px solid black;
+  position: relative;
+  left: 20%;
+}
+
+.movDiv {
+  transform: translate(200px);
+  transition: 1s;
 }
