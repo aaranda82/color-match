@@ -12,10 +12,9 @@ var games_played = 0;
 function initializeApp(){
   layOutCards()
   $('.container').on('click', '.card', handleCardClick)
-  // $('.card').click(handleCardClick);// use event delegations here
-  $('.resetGame').click(resetGame);
+    $('.resetGame').click(resetGame);
   displayStats();
-  console.log(attempts);
+  console.log('attempts', attempts);
 
 }
 
@@ -35,9 +34,7 @@ function handleCardClick(event){
     console.log('cards match');
     matches++;
     attempts++;
-    if (games_played === max_games) {
-      winTheCup();
-    }else if(matches === max_matches){
+    if(matches === max_matches){
       $('.goal').removeClass('hidden')
       games_played++;
       console.log('games won ', games_played)
@@ -55,10 +52,12 @@ function handleCardClick(event){
     }, 750)
   }
 
-
+  if (games_played === max_games) {
+    winTheCup();
+  }
 
   displayStats();
-  console.log(attempts);
+  console.log('atttempts', attempts);
 }
 
 function resetGame(event){
@@ -72,7 +71,11 @@ function resetGame(event){
 
 function calculateAccuracy(){
   var accuracyCalc = ((matches / attempts)*100).toFixed(0);
+  if(accuracyCalc === 'NaN'){
+    return '0'
+  }else{
   return accuracyCalc;
+  }
 }
 
 function displayStats(){
@@ -80,18 +83,15 @@ function displayStats(){
   $('.gamesPlayed').text(games_played);
   $('.attempts').text(attempts);
   $('.accuracy').text(accuracy + '%');
-  console.log(accuracy)
 }
 
 function resetStats(){
   matches = null;
   attempts = null;
-  games_played++;
   displayStats();
   $('.front').removeClass('hidden');
 }
 
-//create array with each class, make a copy of each class and
 var ballArray = ['adidas2', 'adidas3', 'adidas4', 'nike1', 'nike2', 'nike3', 'puma1', 'puma2', 'puma3'];
 var fullArray = ballArray.concat(ballArray);
 
@@ -116,9 +116,7 @@ function layOutCards(){
     var frontCard = $('<div>').addClass("front frontImg");
     var backCard = $('<div>').addClass('back ballBackground '+fullArray[index]+'');
     dynamicBack.append(frontCard, backCard);
-    // var dynamicFace = $('div .card:last-child');
-    // dynamicFace.append('<div class="back ballBackground">');
-}
+  }
 }
 
 function deleteCards(){
@@ -130,6 +128,11 @@ function winTheCup(){
   games_played = 0;
 }
 
-// function expandKey(){
-
+// function createdisplay(){
+//   var dynamicGoalTotal = $('.stats');
+//   var goalTotalDiv = $('<div>').addClass('goalTotal');
+//   var goalTotalOutput = &('<div>').addClass('goalOutput')
+//   dynamicGoalTotal.append(gameTotalDiv);
+//   $('.gameTotal').text('Total Goals')
+//   $('.goalOutput').text(games_played)
 // }
