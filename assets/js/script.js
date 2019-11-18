@@ -14,8 +14,6 @@ function initializeApp(){
   $('.container').on('click', '.card', handleCardClick)
     $('.resetGame').click(resetGame);
   displayStats();
-  console.log('attempts', attempts);
-
 }
 
 function handleCardClick(event){ //function to hold game conditionals for game functioning
@@ -31,13 +29,11 @@ function handleCardClick(event){ //function to hold game conditionals for game f
   var secondCardImage = secondCardClicked.find('.back').css('background-image')
 
   if(firstCardImage === secondCardImage){ //compares cards clicked to each other
-    console.log('cards match');
     matches++;
     attempts++;
     if(matches === max_matches){ //tracks and compares matches make modal appear and reset game
       $('.goal').removeClass('hidden')
       games_played++;
-      console.log('games won ', games_played)
     }else{ //resets cards clicked
       firstCardClicked = null;
       secondCardClicked = null;
@@ -53,7 +49,7 @@ function handleCardClick(event){ //function to hold game conditionals for game f
   }
 
   displayStats();
-  console.log('atttempts', attempts);
+
 }
 
 function resetGame(event){ //hides modal, resets stats and cards clicked, and recreates game board
