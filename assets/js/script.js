@@ -18,7 +18,7 @@ function initializeApp(){
 
 }
 
-function handleCardClick(event){
+function handleCardClick(event){ //function to hold game conditionals for game functioning
   var target = $(event.currentTarget)
   target.find('.front').addClass('hidden')
   if(firstCardClicked === null){
@@ -30,19 +30,19 @@ function handleCardClick(event){
   var firstCardImage = firstCardClicked.find('.back').css('background-image')
   var secondCardImage = secondCardClicked.find('.back').css('background-image')
 
-  if(firstCardImage === secondCardImage){
+  if(firstCardImage === secondCardImage){ //compares cards clicked to each other
     console.log('cards match');
     matches++;
     attempts++;
-    if(matches === max_matches){
+    if(matches === max_matches){ //tracks and compares matches make modal appear and reset game
       $('.goal').removeClass('hidden')
       games_played++;
       console.log('games won ', games_played)
-    }else{
+    }else{ //resets cards clicked
       firstCardClicked = null;
       secondCardClicked = null;
     }
-  }else if (firstCardImage !== secondCardImage){
+  }else if (firstCardImage !== secondCardImage){ //resets the cards if not matching
     attempts++;
     setTimeout(function(){
       firstCardClicked.find('.front').removeClass('hidden')
@@ -52,15 +52,11 @@ function handleCardClick(event){
     }, 750)
   }
 
-  if (games_played === max_games) {
-    winTheCup();
-  }
-
   displayStats();
   console.log('atttempts', attempts);
 }
 
-function resetGame(event){
+function resetGame(event){ //hides modal, resets stats and cards clicked, and recreates game board
   $('.goal').addClass('hidden');
   resetStats();
   firstCardClicked = null;
@@ -69,7 +65,7 @@ function resetGame(event){
   layOutCards();
 }
 
-function calculateAccuracy(){
+function calculateAccuracy(){ //compares matches to attemps to calculate accuracy
   var accuracyCalc = ((matches / attempts)*100).toFixed(0);
   if(accuracyCalc === 'NaN'){
     return '0'
@@ -78,14 +74,14 @@ function calculateAccuracy(){
   }
 }
 
-function displayStats(){
+function displayStats(){ //updates stats as game progresses
   var accuracy = calculateAccuracy()
   $('.gamesPlayed').text(games_played);
   $('.attempts').text(attempts);
   $('.accuracy').text(accuracy + '%');
 }
 
-function resetStats(){
+function resetStats(){ //clears stats
   matches = null;
   attempts = null;
   displayStats();
@@ -95,7 +91,7 @@ function resetStats(){
 var ballArray = ['adidas2', 'adidas3', 'adidas4', 'nike1', 'nike2', 'nike3', 'puma1', 'puma2', 'puma3'];
 var fullArray = ballArray.concat(ballArray);
 
-function shuffleCards(cardArray){
+function shuffleCards(cardArray){ //function to randomize card layout
   var currentIndex = cardArray.length, temp, randomIndex;
   while(0 !== currentIndex){
     randomIndex = Math.floor(Math.random()* currentIndex);
@@ -107,7 +103,7 @@ function shuffleCards(cardArray){
   return cardArray;
 }
 
-function layOutCards(){
+function layOutCards(){ // runs shufflecard fx and dynamically lays out cards
   shuffleCards(fullArray);
   for(var index = 0; index < fullArray.length; index++){
     var dynamicCard = $('.container');
@@ -119,20 +115,6 @@ function layOutCards(){
   }
 }
 
-function deleteCards(){
+function deleteCards(){ //fx to delete cards on game reset
   $('.card').remove();
 }
-function winTheCup(){
-  $('.worldCupChamps').removeClass('hidden')
-  resetStats()
-  games_played = 0;
-}
-
-// function createdisplay(){
-//   var dynamicGoalTotal = $('.stats');
-//   var goalTotalDiv = $('<div>').addClass('goalTotal');
-//   var goalTotalOutput = &('<div>').addClass('goalOutput')
-//   dynamicGoalTotal.append(gameTotalDiv);
-//   $('.gameTotal').text('Total Goals')
-//   $('.goalOutput').text(games_played)
-// }

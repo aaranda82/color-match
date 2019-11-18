@@ -24,7 +24,7 @@
 .resetGame{
   border: 3px solid black;
   border-radius: 10px;
-  background-color: ;
+  background-color: white;
   position: absolute;
   top: 11%;
   left: 28%;
@@ -45,6 +45,15 @@
   text-shadow: 2px 2px #000, -2px 2px #000, 2px -2px #000, -2px -2px #000;
 }
 
+.statsHeader {
+  width: 80%;
+  margin: 1vmin;
+  background-color: black;
+  border: 3px solid white;
+  border-radius: 20px;
+  color: white;
+}
+
 .card{
 height: 15vh;
     width: 13%;
@@ -63,7 +72,19 @@ height: 15vh;
   height: 12%;
   width: 80%;
   margin: 1vmin;
-  background-color: lightseagreen;
+  background-color: white;
+  border: 3px solid black;
+  border-radius: 20px;
+}
+
+.subStats1 {
+  height: 12%;
+  width: 80%;
+  margin: 1vmin;
+  background-color: black;
+  border: 3px solid white;
+  color: white;
+  border-radius: 20px;
 }
 
 .stats {
