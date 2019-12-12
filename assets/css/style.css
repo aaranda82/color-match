@@ -14,11 +14,11 @@
 }
 
 .goalImg{
-  background-image: url('../images/soccer-images/game-won.jpg');
+  background-color: #0097e6;
 }
 
 .worldCupChamps{
-  background-Image: url('../images/soccer-images/worldcupchamps.jpg');
+  background-color: #0097e6;
 }
 
 .resetGame{
