@@ -1,34 +1,13 @@
-.goal{
-  height: 60%;
-  width: 60%;
+body{
+  background-color: #f5f6fa;
   background-size: cover;
-  background-position: center;
-  border: 10px solid f5f6fa;
-  border-radius: 46px;
-  top: 16%;
-  left: 29.5%;
-  position: absolute;
+}
+
+.header {
+  font-size: 60px;
+  color: #2f3640;
+  display: block;
   text-align: center;
-  z-index: 1;
-  font-size: 54px;
-}
-
-.goalImg{
-  background-color: #0097e6;
-}
-
-.worldCupChamps{
-  background-color: #0097e6;
-}
-
-.resetGame{
-  border: 3px solid 2f3640;
-  border-radius: 10px;
-  background-color: f5f6fa;
-  position: absolute;
-  top: 11%;
-  left: 28%;
-  font-size: 30px;
 }
 
 .gameArea {
@@ -36,11 +15,8 @@
   justify-content: center;
 }
 
-.header {
-  font-size: 60px;
-  color: #2f3640;
-  margin: 5px;
-  display: block;
+.stats {
+  width: 20%;
   text-align: center;
 }
 
@@ -52,27 +28,12 @@
   color: f5f6fa;
 }
 
-.card{
-  height: 15vh;
-  width: 13%;
-  margin: 10px;
-  margin-top: 5%;
-  position: relative;
-
-}
-
-.container {
-  display: flex;
-  flex-wrap: wrap;
-  width: 100vmin;
-}
-
 .subStats {
   height: 12%;
   width: 80%;
   margin: 1vmin;
-  background-color: f5f6fa;
-  border: 3px solid 2f3640;
+  background-color: #f5f6fa;
+  border: 3px solid #2f3640;
   border-radius: 20px;
 }
 
@@ -80,19 +41,52 @@
   height: 12%;
   width: 80%;
   margin: 1vmin;
-  background-color: 2f3640;
-  border: 3px solid f5f6fa;
-  color: f5f6fa;
+  background-color: #f5f6fa;
+  border: 3px solid #2f3640;
+  color: #f5f6fa;
   border-radius: 20px;
 }
 
-.stats {
-  width: 30vmin;
+.gameWon{
+  height: 60%;
+  width: 60%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: fixed;
   text-align: center;
+  z-index: 1;
+  font-size: 54px;
 }
 
-.border {
+
+.resetGame{
   border: 3px solid #2f3640;
+  border-radius: 10px;
+  background-color: #f5f6fa;
+  position: absolute;
+  top: 11%;
+  left: 28%;
+  font-size: 30px;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 80%;
+}
+
+.card{
+  height: 15vh;
+  width: 13%;
+  margin: 10px;
+  margin-top: 5%;
+  position: relative;
+}
+
+.front {
+  height: 100%;
+  width: 100%;
 }
 
 .back {
@@ -104,20 +98,12 @@
   border-radius: 20px;
 }
 
-.front {
-  height: 100%;
-  width: 100%;
-}
-
-
-body{
-  background-color: #f5f6fa;
-  background-size: cover;
-
+.border {
+  border: 3px solid #2f3640;
 }
 
 .frontImg{
-  background-color: f5f6fa;
+  background-color: #f5f6fa;
 }
 
 .red{

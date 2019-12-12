@@ -25,8 +25,8 @@ function handleCardClick(event){ //function to hold game conditionals for game f
   secondCardClicked = target;
   }
 
-  var firstCardImage = firstCardClicked.find('.front').css('background-image')
-  var secondCardImage = secondCardClicked.find('.front').css('background-image')
+  var firstCardImage = firstCardClicked.find('.front').css('background-color')
+  var secondCardImage = secondCardClicked.find('.front').css('background-color')
 
   if(firstCardImage === secondCardImage){ //compares cards clicked to each other
     matches++;
@@ -84,7 +84,7 @@ function resetStats(){ //clears stats
   $('.back').removeClass('hidden');
 }
 
-var ballArray = ['adidas2', 'adidas3', 'adidas4', 'nike1', 'nike2', 'nike3', 'puma1', 'puma2', 'puma3'];
+var ballArray = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet', 'black', 'chartreuse'];
 var fullArray = ballArray.concat(ballArray);
 
 function shuffleCards(cardArray){ //function to randomize card layout
@@ -103,7 +103,7 @@ function layOutCards(){ // runs shufflecard fx and dynamically lays out cards
   shuffleCards(fullArray);
   for(var index = 0; index < fullArray.length; index++){
     var dynamicCard = $('.container');
-    dynamicCard.append('<div class="card">');
+    dynamicCard.append('<div class="card border">');
     var dynamicBack = $('div .card:last-child');
     var frontCard = $('<div>').addClass("back frontImg");
     var backCard = $('<div>').addClass('front ballBackground '+fullArray[index]+'');
