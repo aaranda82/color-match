@@ -18,15 +18,15 @@ function initializeApp(){
 
 function handleCardClick(event){ //function to hold game conditionals for game functioning
   var target = $(event.currentTarget)
-  target.find('.front').addClass('hidden')
+  target.find('.back').addClass('hidden')
   if(firstCardClicked === null){
   firstCardClicked = target;
   }else{
   secondCardClicked = target;
   }
 
-  var firstCardImage = firstCardClicked.find('.back').css('background-image')
-  var secondCardImage = secondCardClicked.find('.back').css('background-image')
+  var firstCardImage = firstCardClicked.find('.front').css('background-image')
+  var secondCardImage = secondCardClicked.find('.front').css('background-image')
 
   if(firstCardImage === secondCardImage){ //compares cards clicked to each other
     matches++;
@@ -41,8 +41,8 @@ function handleCardClick(event){ //function to hold game conditionals for game f
   }else if (firstCardImage !== secondCardImage){ //resets the cards if not matching
     attempts++;
     setTimeout(function(){
-      firstCardClicked.find('.front').removeClass('hidden')
-      secondCardClicked.find('.front').removeClass('hidden')
+      firstCardClicked.find('.back').removeClass('hidden')
+      secondCardClicked.find('.back').removeClass('hidden')
       firstCardClicked = null;
       secondCardClicked = null;
     }, 750)
@@ -81,7 +81,7 @@ function resetStats(){ //clears stats
   matches = null;
   attempts = null;
   displayStats();
-  $('.front').removeClass('hidden');
+  $('.back').removeClass('hidden');
 }
 
 var ballArray = ['adidas2', 'adidas3', 'adidas4', 'nike1', 'nike2', 'nike3', 'puma1', 'puma2', 'puma3'];
@@ -105,8 +105,8 @@ function layOutCards(){ // runs shufflecard fx and dynamically lays out cards
     var dynamicCard = $('.container');
     dynamicCard.append('<div class="card">');
     var dynamicBack = $('div .card:last-child');
-    var frontCard = $('<div>').addClass("front frontImg");
-    var backCard = $('<div>').addClass('back ballBackground '+fullArray[index]+'');
+    var frontCard = $('<div>').addClass("back frontImg");
+    var backCard = $('<div>').addClass('front ballBackground '+fullArray[index]+'');
     dynamicBack.append(frontCard, backCard);
   }
 }
