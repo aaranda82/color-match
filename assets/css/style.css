@@ -1,87 +1,103 @@
 body{
   background-color: #f5f6fa;
   background-size: cover;
+  margin: 0;
+}
+.root{
+  display: flex;
 }
 
-.header {
-  font-size: 60px;
-  color: #2f3640;
-  display: block;
-  text-align: center;
+.modal{
+  position: absolute;
+  height: 90%;
+  width: 80%;
+  bottom: 0;
+  right: 0;
+  background-color: lightblue;
+}
+
+.gameWon{
+  height: 80%;
+  width: 100%;
+  background-color: lightgray;
+  }
+
+.resetButton{
+  height: 10%;
+  width: 20%;
+  border-radius: 10px;
+  margin-left: 40%;
 }
 
 .gameArea {
   display: flex;
-  justify-content: center;
+  flex-wrap: wrap;
+  height: 100vh;
+  width: 100%;
 }
 
-.stats {
-  width: 20%;
+.header {
+  background-color: #7ed6df;
+  font-size: 60px;
+  color: #2f3640;
   text-align: center;
-}
-
-.statsHeader {
-  width: 80%;
-  margin: 1vmin;
-  background-color: #2f3640;
-  border-radius: 20px;
-  color: f5f6fa;
-}
-
-.subStats {
-  height: 12%;
-  width: 80%;
-  margin: 1vmin;
-  background-color: #f5f6fa;
-  border: 3px solid #2f3640;
-  border-radius: 20px;
-}
-
-.subStats1 {
-  height: 12%;
-  width: 80%;
-  margin: 1vmin;
-  background-color: #f5f6fa;
-  border: 3px solid #2f3640;
-  color: #f5f6fa;
-  border-radius: 20px;
-}
-
-.gameWon{
-  height: 60%;
-  width: 60%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  position: fixed;
-  text-align: center;
-  z-index: 1;
-  font-size: 54px;
-}
-
-
-.resetGame{
-  border: 3px solid #2f3640;
-  border-radius: 10px;
-  background-color: #f5f6fa;
-  position: absolute;
-  top: 11%;
-  left: 28%;
-  font-size: 30px;
+  height: 10vh;
+  width: 100%;
 }
 
 .container {
   display: flex;
   flex-wrap: wrap;
-  width: 80%;
+  width: 100%;
+  height: 90vh;
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+.stats {
+  width: 20%;
+  text-align: center;
+  background-color: #b2bec3;
+}
+
+.statsHeader {
+  margin: auto;
+  background-color: #2f3640;
+  height: 10vh;
+}
+
+.statsTitle{
+  color: #f5f6fa;
+  font-size: 7vmin;
+  font-family: 'Bowlby One SC';
+}
+
+.statsContainer{
+  background-color: #badc58;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.subStats{
+  width: 100%;
+  height: 30%;
+}
+
+.spacer{
+  width: 100%;
+  height: 10%;
+}
+
+.attempts, .gamesPlayed, .accuracy{
+  font-size: 6vh;
 }
 
 .card{
   height: 15vh;
-  width: 13%;
-  margin: 10px;
-  margin-top: 5%;
+  width: 15%;
+  margin: auto;
   position: relative;
+
 }
 
 .front {
@@ -95,11 +111,10 @@ body{
   height: 100%;
   width: 100%;
   position: absolute;
-  border-radius: 20px;
 }
 
 .border {
-  border: 3px solid #2f3640;
+  border: 3px solid #b2bec3;
 }
 
 .frontImg{
@@ -113,50 +128,138 @@ body{
 
 .orange{
   background-color: #EE5A24;
-
 }
 
 .yellow{
   background-color: #FFC312;
-
 }
 
 .green{
   background-color: #009432;
-
 }
+
 .blue{
   background-color: #0652DD;
-
 }
 
 .indigo{
   background-color: #D980FA;
-
 }
 
 .violet{
   background-color:#833471;
-
 }
 
 .black{
   background-color: #2f3640;
-
 }
 
 .chartreuse{
   background-color: #4cd137;
-
 }
 
 .ballBackground{
   background-size: cover;
   background-position: center;
-  border-radius: 50px;
 }
 
 .hidden{
   display: none;
 }
 
+@media (max-width: 1020px){
+  .root{
+    display: block;
+  }
+  
+  .header{
+    display: none;
+  }
+
+  .stats{
+    width: 100%;
+    height: 10vh;
+    display: flex;
+  }
+
+  .gameArea{
+    width: 100%;
+    height: 90vh;
+  }
+
+  .modal{
+    width: 100%;
+    height: 90%;
+  }
+
+  .statsHeader{
+    width: 20%;
+  }
+
+  .statsContainer{
+    width: 80%;
+  }
+}
+
+@media (orientation: landscape){
+  .stats{
+    width: 20%;
+    height: initial;
+    display: initial;
+  }
+
+  .container{
+    height: 90vh;
+  }
+
+  .gameArea{
+    width: 80%;
+    height: 100vh;
+  }
+
+  .modal{
+    width: 80%;
+    height: 100%;
+  }
+
+  .root{
+    display: flex;
+  }
+
+  .statsHeader{
+    width: 100%;
+  }
+
+  .statsContainer{
+  width: 100%;
+  height: 90vh;
+  flex-direction: column;
+  }
+
+  .subStats{
+    height: 30%;
+  }
+}
+
+@media (max-width: 376px){
+  .container{
+    flex-direction: column;
+  }
+
+  .card {
+    height: 15%;
+    width: 25vw;
+  }
+
+}
+
+@media (orientation: portrait){
+  .subStats{
+    width: 33%;
+    height: 100%;
+  }
+  
+  .spacer{
+    display: none;
+  }
+}
