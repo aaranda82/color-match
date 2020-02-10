@@ -1,11 +1,11 @@
 $(document).ready(initializeApp)
 
-var firstCardClicked = null;
-var secondCardClicked = null;
-var matches = null;
-var max_matches = 9;
-var attempts = 0;
-var games_played = 0;
+let firstCardClicked = null;
+let secondCardClicked = null;
+let matches = null;
+let max_matches = 9;
+let attempts = 0;
+let games_played = 0;
 
 function initializeApp() {
   layOutCards()
@@ -19,33 +19,33 @@ function resetSelectedCrads() {
   secondCardClicked = null;
 }
 
-function handleCardClick(event) { //function to hold game conditionals for game functioning
-  console.log("matches: ", matches, "- and attempts: ", attempts)
+function handleCardClick(event) {
   if (firstCardClicked && secondCardClicked) {
     return
   } else {
-    var target = $(event.currentTarget)
+    const target = $(event.currentTarget)
     target.find('.back').addClass('hidden')
     if (!firstCardClicked) {
       firstCardClicked = target;
+    } else if(firstCardClicked[0].outerHTML === target[0].outerHTML){
+      return
     } else {
       secondCardClicked = target;
     }
-    var firstCardImage = firstCardClicked.find('.front').css('background-color')
-    var secondCardImage = secondCardClicked ? secondCardClicked.find('.front').css('background-color') : null
+    const firstCardImage = firstCardClicked.find('.front').css('background-color')
+    const secondCardImage = secondCardClicked ? secondCardClicked.find('.front').css('background-color') : null
     if (firstCardImage && secondCardImage) {
-      if (firstCardImage === secondCardImage) { //compares cards clicked to each other
+      if (firstCardImage === secondCardImage) {
         matches++;
         attempts++;
-        console.log("matches: ", matches, "- and attempts: ", attempts)
         resetSelectedCrads()
-        if (matches === max_matches) { //tracks and compares matches make modal appear and reset game
+        if (matches === max_matches) {
           $('.modal').removeClass('hidden')
           games_played++;
-        } else { //resets cards clicked
+        } else {
           resetSelectedCrads()
         }
-      } else { //resets the cards if not matching
+      } else {
         attempts++;
         setTimeout(function () {
           firstCardClicked.find('.back').removeClass('hidden')
@@ -55,12 +55,10 @@ function handleCardClick(event) { //function to hold game conditionals for game 
       }
     }
   }
-
   displayStats();
-
 }
 
-function resetGame(event) { //hides modal, resets stats and cards clicked, and recreates game board
+function resetGame() {
   $('.modal').addClass('hidden');
   resetStats();
   firstCardClicked = null;
@@ -69,8 +67,8 @@ function resetGame(event) { //hides modal, resets stats and cards clicked, and r
   layOutCards();
 }
 
-function calculateAccuracy() { //compares matches to attemps to calculate accuracy
-  var accuracyCalc = ((matches / attempts) * 100).toFixed(0);
+function calculateAccuracy() {
+  const accuracyCalc = ((matches / attempts) * 100).toFixed(0);
   if (accuracyCalc === 'NaN') {
     return '0'
   } else {
@@ -78,25 +76,25 @@ function calculateAccuracy() { //compares matches to attemps to calculate accura
   }
 }
 
-function displayStats() { //updates stats as game progresses
-  var accuracy = calculateAccuracy()
+function displayStats() {
+  const accuracy = calculateAccuracy()
   $('.gamesPlayed').text(games_played);
   $('.attempts').text(attempts);
   $('.accuracy').text(accuracy + '%');
 }
 
-function resetStats() { //clears stats
+function resetStats() {
   matches = 0;
   attempts = 0;
   displayStats();
   $('.back').removeClass('hidden');
 }
 
-var ballArray = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet', 'black', 'chartreuse'];
-var fullArray = ballArray.concat(ballArray);
+const cardArray = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet', 'black', 'chartreuse'];
+const fullArray = cardArray.concat(cardArray);
 
-function shuffleCards(cardArray) { //function to randomize card layout
-  var currentIndex = cardArray.length, temp, randomIndex;
+function shuffleCards(cardArray) {
+  let currentIndex = cardArray.length, temp, randomIndex;
   while (0 !== currentIndex) {
     randomIndex = Math.floor(Math.random() * currentIndex);
     currentIndex -= 1;
@@ -107,18 +105,18 @@ function shuffleCards(cardArray) { //function to randomize card layout
   return cardArray;
 }
 
-function layOutCards() { // runs shufflecard fx and dynamically lays out cards
+function layOutCards() {
   shuffleCards(fullArray);
-  for (var index = 0; index < fullArray.length; index++) {
-    var dynamicCard = $('.container');
+  let dynamicCard = $('.container');
+  for (var index in fullArray) {
     dynamicCard.append('<div class="card border">');
-    var dynamicBack = $('div .card:last-child');
-    var frontCard = $('<div>').addClass("back frontImg");
-    var backCard = $('<div>').addClass('front ballBackground ' + fullArray[index] + '');
+    const dynamicBack = $('div .card:last-child');
+    const frontCard = $('<div>').addClass("back backImg");
+    const backCard = $('<div>').addClass(`front ${fullArray[index]} ${index}`);
     dynamicBack.append(frontCard, backCard);
   }
 }
 
-function deleteCards() { //fx to delete cards on game reset
+function deleteCards() {
   $('.card').remove();
 }

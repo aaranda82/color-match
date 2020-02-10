@@ -32,12 +32,10 @@ body{
 .gameArea {
   display: flex;
   flex-wrap: wrap;
-  height: 100vh;
-  width: 100%;
 }
 
 .header {
-  background-color: #7ed6df;
+  background-color: #fbc531;
   font-size: 60px;
   color: #2f3640;
   text-align: center;
@@ -55,14 +53,12 @@ body{
 }
 
 .stats {
-  width: 20%;
   text-align: center;
-  background-color: #b2bec3;
 }
 
 .statsHeader {
   margin: auto;
-  background-color: #2f3640;
+  background-color: #e84118;
   height: 10vh;
 }
 
@@ -73,7 +69,7 @@ body{
 }
 
 .statsContainer{
-  background-color: #badc58;
+  background-color: #487eb0;
   display: flex;
   flex-wrap: wrap;
 }
@@ -93,7 +89,7 @@ body{
 }
 
 .card{
-  height: 15vh;
+  height: 27vh;
   width: 15%;
   margin: auto;
   position: relative;
@@ -117,7 +113,7 @@ body{
   border: 3px solid #b2bec3;
 }
 
-.frontImg{
+.backImg{
   background-color: #f5f6fa;
 }
 
@@ -202,30 +198,26 @@ body{
 }
 
 @media (orientation: landscape){
-  .stats{
-    width: 20%;
-    height: initial;
-    display: initial;
-  }
-
-  .container{
-    height: 90vh;
-  }
-
-  .gameArea{
-    width: 80%;
-    height: 100vh;
-  }
-
-  .modal{
-    width: 80%;
-    height: 100%;
-  }
-
   .root{
     display: flex;
   }
 
+  .stats{
+    width: 15%;
+    height: initial;
+    display: initial;
+  }  
+
+    .gameArea{
+    width: 85%;
+    height: 100vh;
+  }  
+
+  .modal{
+    width: 80%;
+    height: 100%;
+  }  
+  
   .statsHeader{
     width: 100%;
   }
@@ -241,25 +233,44 @@ body{
   }
 }
 
-@media (max-width: 376px){
-  .container{
-    flex-direction: column;
-  }
-
-  .card {
-    height: 15%;
-    width: 25vw;
-  }
-
-}
-
 @media (orientation: portrait){
   .subStats{
     width: 33%;
     height: 100%;
   }
+
+  .container{
+    flex-direction: column;
+  }
+
+  .card{
+    height: 13vh;
+    width: 30%;
+  }
   
   .spacer{
     display: none;
+  }
+}
+
+@media (max-width: 376px){
+  .container{
+    flex-direction: column;
+  }  
+
+  .card {
+    height: 14%;
+    width: 25vw;
+  }  
+
+}  
+
+@media (max-width: 1023px){
+  .header{
+    display: none;
+  }
+
+  .container{
+    height: 100%;
   }
 }
