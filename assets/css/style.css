@@ -9,19 +9,27 @@ body{
 
 .modal{
   position: absolute;
-  height: 90%;
-  width: 80%;
   bottom: 0;
   right: 0;
   background-color: lightblue;
 }
 
 .gameWon{
+  position: relative;
   height: 80%;
   width: 100%;
   background-color: lightgray;
   }
 
+.modalMsg{
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
+  text-align: center;
+  font-size: 7vh;
+}
+  
 .resetButton{
   height: 10%;
   width: 20%;
@@ -214,7 +222,7 @@ body{
   }  
 
   .modal{
-    width: 80%;
+    width: 85%;
     height: 100%;
   }  
   
