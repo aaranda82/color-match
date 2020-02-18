@@ -18,23 +18,38 @@ body{
   position: relative;
   height: 80%;
   width: 100%;
-  background-color: lightgray;
+  background-image: url("/assets/images/sunRainbowImage.jpg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  }
+
+.gameStart{
+  position: relative;
+  height: 80%;
+  width: 100%;
+  background-image: url("/assets/images/greyRainbow.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
   }
 
 .modalMsg{
   position: absolute;
   transform: translate(-50%, -50%);
   left: 50%;
-  top: 50%;
+  top: 75%;
   text-align: center;
-  font-size: 7vh;
+  font-size: 5vh;
 }
   
-.resetButton{
+.resetButton, .startButton{
   height: 10%;
   width: 20%;
   border-radius: 10px;
   margin-left: 40%;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 2vw;
 }
 
 .gameArea {
@@ -101,7 +116,10 @@ body{
   width: 15%;
   margin: auto;
   position: relative;
+}
 
+.pointer{
+  cursor: pointer;
 }
 
 .front {
@@ -123,6 +141,12 @@ body{
 
 .backImg{
   background-color: #f5f6fa;
+}
+
+.backImg:hover{
+  background-image: url('../images/rainbowIcon.png');
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
 .red{
@@ -200,6 +224,10 @@ body{
     height: 90%;
   }
 
+  .modalMsg{
+    font-size: 3vw;
+  }
+
   .statsHeader{
     width: 20%;
   }
@@ -246,6 +274,10 @@ body{
 }
 
 @media (orientation: portrait){
+  .modalMsg{
+    top: 60%;
+  }
+
   .subStats{
     width: 33%;
     height: 100%;

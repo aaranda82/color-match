@@ -38,13 +38,16 @@
       <div class='header'>COLOR MATCH</div>
       <div class="container"></div>
     </main>
-    <div class="modal hidden" />
-    <div class="gameWon">
-      <div class="modalMsg">
-        You matched all the colors,<br> Great Job!
-      </div>
+    <div id="winningModal" class="modal hidden">
+      <div class="gameWon"></div>
+      <button class="resetButton">TRY AGAIN</button>
     </div>
-    <button class="resetButton">RESET</button>
+    <div id="openingModal" class="modal">
+      <div class="gameStart">
+        <div class="modalMsg">Match all the colors of the rainbow to make the rain go away</div>
+      </div>
+      <button class="startButton">GET STARTED</button>
+    </div>
   </div>
   </div>
 </body>

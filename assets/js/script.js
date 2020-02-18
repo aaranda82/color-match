@@ -11,6 +11,7 @@ function initializeApp() {
   layOutCards()
   $('.container').on('click', '.card', handleCardClick)
   $('.resetButton').click(resetGame);
+  $('.startButton').click(startGame)
   displayStats();
 }
 
@@ -27,7 +28,7 @@ function handleCardClick(event) {
     target.find('.back').addClass('hidden')
     if (!firstCardClicked) {
       firstCardClicked = target;
-    } else if(firstCardClicked[0].outerHTML === target[0].outerHTML){
+    } else if (firstCardClicked[0].outerHTML === target[0].outerHTML) {
       return
     } else {
       secondCardClicked = target;
@@ -40,7 +41,7 @@ function handleCardClick(event) {
         attempts++;
         resetSelectedCrads()
         if (matches === max_matches) {
-          $('.modal').removeClass('hidden')
+          $('#winningModal').removeClass('hidden')
           games_played++;
         } else {
           resetSelectedCrads()
@@ -59,12 +60,16 @@ function handleCardClick(event) {
 }
 
 function resetGame() {
-  $('.modal').addClass('hidden');
+  $('#winningModal').addClass('hidden');
   resetStats();
   firstCardClicked = null;
   secondCardClicked = null;
   deleteCards();
   layOutCards();
+}
+
+function startGame() {
+  $('#openingModal').addClass('hidden')
 }
 
 function calculateAccuracy() {
@@ -111,7 +116,7 @@ function layOutCards() {
   for (var index in fullArray) {
     dynamicCard.append('<div class="card border">');
     const dynamicBack = $('div .card:last-child');
-    const frontCard = $('<div>').addClass("back backImg");
+    const frontCard = $('<div>').addClass("back backImg pointer");
     const backCard = $('<div>').addClass(`front ${fullArray[index]} ${index}`);
     dynamicBack.append(frontCard, backCard);
   }
