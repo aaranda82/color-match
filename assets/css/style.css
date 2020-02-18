@@ -1,5 +1,5 @@
 body{
-  background-color: #f5f6fa;
+  background-color: #aaa69d;
   background-size: cover;
   margin: 0;
 }
@@ -11,7 +11,7 @@ body{
   position: absolute;
   bottom: 0;
   right: 0;
-  background-color: lightblue;
+  background-color: #b8e994;
 }
 
 .gameWon{
@@ -19,7 +19,7 @@ body{
   height: 80%;
   width: 100%;
   background-image: url("/assets/images/sunRainbowImage.jpg");
-  background-size: contain;
+  background-size: auto 100%;
   background-repeat: no-repeat;
   background-position: center;
   }
@@ -29,7 +29,7 @@ body{
   height: 80%;
   width: 100%;
   background-image: url("/assets/images/greyRainbow.png");
-  background-size: contain;
+  background-size: auto 100%;
   background-repeat: no-repeat;
   background-position: center;
   }
@@ -58,7 +58,8 @@ body{
 }
 
 .header {
-  background-color: #fbc531;
+  font-family: sans-serif;
+  background-color: #ffeaa7;
   font-size: 5vw;
   color: #2f3640;
   text-align: center;
@@ -73,26 +74,29 @@ body{
   height: 90vh;
   padding-left: 5%;
   padding-right: 5%;
+  background-image: url('/assets/images/clouds.jpg');
+  background-size: auto 100%;
 }
 
 .stats {
   text-align: center;
+  font-family: 'Bowlby One SC';
+
 }
 
 .statsHeader {
   margin: auto;
-  background-color: #e84118;
+  background-color: #fab1a0;
   height: 10vh;
 }
 
 .statsTitle{
-  color: #f5f6fa;
   font-size: 5vw;
   font-family: 'Bowlby One SC';
 }
 
 .statsContainer{
-  background-color: #487eb0;
+  background-color: #9AECDB;
   display: flex;
   flex-wrap: wrap;
 }
@@ -116,15 +120,22 @@ body{
   width: 15%;
   margin: auto;
   position: relative;
+  border-radius: 8px;
 }
 
 .pointer{
   cursor: pointer;
 }
 
+.pointerEvent{
+  pointer-events: none;
+}
+
 .front {
   height: 100%;
   width: 100%;
+  border-radius: 8px;
+
 }
 
 .back {
@@ -133,6 +144,8 @@ body{
   height: 100%;
   width: 100%;
   position: absolute;
+  border-radius: 8px;
+
 }
 
 .border {
@@ -306,6 +319,10 @@ body{
     height: 14%;
     width: 25vw;
   }  
+
+  .modalMsg{
+    font-size: 5vw;
+  }
 
 }  
 

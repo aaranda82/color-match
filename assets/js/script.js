@@ -25,6 +25,7 @@ function handleCardClick(event) {
     return
   } else {
     const target = $(event.currentTarget)
+    $(event.currentTarget).addClass('pointerEvent')
     target.find('.back').addClass('hidden')
     if (!firstCardClicked) {
       firstCardClicked = target;
@@ -47,6 +48,8 @@ function handleCardClick(event) {
           resetSelectedCrads()
         }
       } else {
+        $(firstCardClicked).removeClass('pointerEvent')
+        $(secondCardClicked).removeClass('pointerEvent')
         attempts++;
         setTimeout(function () {
           firstCardClicked.find('.back').removeClass('hidden')
