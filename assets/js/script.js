@@ -2,17 +2,15 @@ $(document).ready(initializeApp)
 
 let firstCardClicked = null;
 let secondCardClicked = null;
-let matches = null;
+let matches = 0;
 let max_matches = 9;
-let attempts = 0;
-let games_played = 0;
+let matchedArray = [];
 
 function initializeApp() {
   layOutCards()
   $('.container').on('click', '.card', handleCardClick)
   $('.resetButton').click(resetGame);
   $('.startButton').click(startGame)
-  displayStats();
 }
 
 function resetSelectedCrads() {
@@ -39,18 +37,17 @@ function handleCardClick(event) {
     if (firstCardImage && secondCardImage) {
       if (firstCardImage === secondCardImage) {
         matches++;
-        attempts++;
+        matchedArray.push(firstCardClicked[0].children[1].classList[1])
         resetSelectedCrads()
         if (matches === max_matches) {
           $('#winningModal').removeClass('hidden')
-          games_played++;
+          matches = 0
         } else {
           resetSelectedCrads()
         }
       } else {
         $(firstCardClicked).removeClass('pointerEvent')
         $(secondCardClicked).removeClass('pointerEvent')
-        attempts++;
         setTimeout(function () {
           firstCardClicked.find('.back').removeClass('hidden')
           secondCardClicked.find('.back').removeClass('hidden')
@@ -59,43 +56,31 @@ function handleCardClick(event) {
       }
     }
   }
-  displayStats();
+  showMatchedColors()
 }
 
 function resetGame() {
   $('#winningModal').addClass('hidden');
-  resetStats();
   firstCardClicked = null;
   secondCardClicked = null;
   deleteCards();
   layOutCards();
+  resetMatchedColors();
 }
 
 function startGame() {
   $('#openingModal').addClass('hidden')
 }
 
-function calculateAccuracy() {
-  const accuracyCalc = ((matches / attempts) * 100).toFixed(0);
-  if (accuracyCalc === 'NaN') {
-    return '0'
-  } else {
-    return accuracyCalc;
+function showMatchedColors() {
+  for (index in matchedArray) {
+    $(`#${matchedArray[index]}`).removeClass('hidden')
   }
 }
 
-function displayStats() {
-  const accuracy = calculateAccuracy()
-  $('.gamesPlayed').text(games_played);
-  $('.attempts').text(attempts);
-  $('.accuracy').text(accuracy + '%');
-}
-
-function resetStats() {
-  matches = 0;
-  attempts = 0;
-  displayStats();
-  $('.back').removeClass('hidden');
+function resetMatchedColors() {
+  $('#red, #orange, #yellow, #green, #chartreuse, #blue, #indigo, #violet, #black').addClass('hidden')
+  matchedArray = []
 }
 
 const cardArray = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet', 'black', 'chartreuse'];
