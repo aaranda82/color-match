@@ -65,9 +65,9 @@ body{
 }
 
 .header {
-  font-family: sans-serif;
+  font-family: cursive;
   background: linear-gradient(to top, #8dd8f8 0%, #ecf0f1 100%);
-  font-size: 5vw;
+  font-size: 4vw;
   color: #2f3640;
   text-align: center;
   height: 10vh;
@@ -118,6 +118,7 @@ body{
   border-radius: 10px;
   font-family: cursive;
   font-size: 2vw;
+  text-shadow: -1px 0 #ecf0f1, 0 1px #ecf0f1, 1px 0 #ecf0f1, 0 -1px #ecf0f1;
 }
 
 .spacer{
