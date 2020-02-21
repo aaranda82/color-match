@@ -9,5 +9,5 @@ A web application written in JavaScript for young children to play to help learn
 
 ## Preview
 
-![SGT React](/assets/images/colorMatch_preview.pn)
+![SGT React](/assets/images/colorMatch_preview.png)
 
