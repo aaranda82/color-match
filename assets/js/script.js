@@ -5,12 +5,24 @@ let secondCardClicked = null;
 let matches = 0;
 let max_matches = 9;
 let matchedArray = [];
+const cheer = new Audio('./assets/images/kids_cheering.mp3')
+const cardArray = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet', 'black', 'chartreuse'];
+const fullArray = cardArray.concat(cardArray);
 
 function initializeApp() {
   layOutCards()
   $('.container').on('click', '.card', handleCardClick)
   $('.resetButton').click(resetGame);
-  $('.startButton').click(startGame)
+  $('.startButton').click(startGame);
+  addColorClickHandle()
+}
+
+function addColorClickHandle() {
+  for (index in cardArray) {
+    $(`#${cardArray[index]}`).click(() => {
+      cheer.play()
+    })
+  }
 }
 
 function resetSelectedCrads() {
@@ -40,6 +52,7 @@ function handleCardClick(event) {
         matchedArray.push(firstCardClicked[0].children[1].classList[1])
         resetSelectedCrads()
         if (matches === max_matches) {
+          cheer.play()
           $('#winningModal').removeClass('hidden')
           matches = 0
         } else {
@@ -74,17 +87,17 @@ function startGame() {
 
 function showMatchedColors() {
   for (index in matchedArray) {
-    $(`#${matchedArray[index]}`).removeClass('hidden')
+    $(`#${matchedArray[index]}`).addClass(`${matchedArray[index]} roll-in-top`)
   }
 }
 
 function resetMatchedColors() {
-  $('#red, #orange, #yellow, #green, #chartreuse, #blue, #indigo, #violet, #black').addClass('hidden')
+  for (index in matchedArray) {
+    $(`#${matchedArray[index]}`).removeClass(matchedArray[index])
+  }
   matchedArray = []
 }
 
-const cardArray = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet', 'black', 'chartreuse'];
-const fullArray = cardArray.concat(cardArray);
 
 function shuffleCards(cardArray) {
   let currentIndex = cardArray.length, temp, randomIndex;
