@@ -5,7 +5,17 @@ let secondCardClicked = null;
 let matches = 0;
 let max_matches = 9;
 let matchedArray = [];
-const cheer = new Audio('./assets/images/kids_cheering.mp3')
+const cheer = new Audio('./assets/sounds/kids_cheering.mp3')
+const red = new Audio('./assets/sounds/Red.m4a')
+const orange = new Audio('./assets/sounds/Orange.m4a')
+const yellow = new Audio('./assets/sounds/Yellow.m4a')
+const green = new Audio('./assets/sounds/Green.m4a')
+const lightGreen = new Audio('./assets/sounds/Light_green.m4a')
+const blue = new Audio('./assets/sounds/Blue.m4a')
+const indigo = new Audio('./assets/sounds/Indigo.m4a')
+const violet = new Audio('./assets/sounds/Violet.m4a')
+const black = new Audio('./assets/sounds/Black.m4a')
+
 const cardArray = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet', 'black', 'chartreuse'];
 const fullArray = cardArray.concat(cardArray);
 
@@ -14,20 +24,52 @@ function initializeApp() {
   $('.container').on('click', '.card', handleCardClick)
   $('.resetButton').click(resetGame);
   $('.startButton').click(startGame);
-  addColorClickHandle()
-}
-
-function addColorClickHandle() {
-  for (index in cardArray) {
-    $(`#${cardArray[index]}`).click(() => {
-      cheer.play()
-    })
-  }
+  $('#red').click(() => { red.play() })
+  $('#orange').click(() => { orange.play() })
+  $('#yellow').click(() => { yellow.play() })
+  $('#green').click(() => { green.play() })
+  $('#chartreuse').click(() => { lightGreen.play() })
+  $('#indigo').click(() => { indigo.play() })
+  $('#blue').click(() => { blue.play() })
+  $('#violet').click(() => { violet.play() })
+  $('#black').click(() => { black.play() })
 }
 
 function resetSelectedCrads() {
   firstCardClicked = null;
   secondCardClicked = null;
+}
+
+function matchedColorSound(color) {
+  switch (color) {
+    case 'red':
+      red.play()
+      break;
+    case 'orange':
+      orange.play()
+      break;
+    case 'yellow':
+      yellow.play();
+      break;
+    case 'green':
+      green.play();
+      break;
+    case 'chartreuse':
+      lightGreen.play();
+      break;
+    case 'blue':
+      blue.play();
+      break;
+    case 'indigo':
+      indigo.play();
+      break;
+    case 'violet':
+      violet.play()
+      break;
+    case 'black':
+      black.play();
+      break;
+  }
 }
 
 function handleCardClick(event) {
@@ -49,12 +91,17 @@ function handleCardClick(event) {
     if (firstCardImage && secondCardImage) {
       if (firstCardImage === secondCardImage) {
         matches++;
-        matchedArray.push(firstCardClicked[0].children[1].classList[1])
+        let color = firstCardClicked[0].children[1].classList[1]
+        matchedArray.push(color)
+        matchedColorSound(color)
         resetSelectedCrads()
         if (matches === max_matches) {
-          cheer.play()
-          $('#winningModal').removeClass('hidden')
-          matches = 0
+          setTimeout(() => {
+
+            cheer.play()
+            $('#winningModal').removeClass('hidden')
+            matches = 0
+          }, 2000)
         } else {
           resetSelectedCrads()
         }
@@ -93,7 +140,7 @@ function showMatchedColors() {
 
 function resetMatchedColors() {
   for (index in matchedArray) {
-    $(`#${matchedArray[index]}`).removeClass(matchedArray[index])
+    $(`#${matchedArray[index]}`).removeClass(`${matchedArray[index]} roll-in-top`)
   }
   matchedArray = []
 }
