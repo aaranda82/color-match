@@ -134,13 +134,13 @@ function startGame() {
 
 function showMatchedColors() {
   for (index in matchedArray) {
-    $(`#${matchedArray[index]}`).addClass(`${matchedArray[index]} roll-in-top`)
+    $(`#${matchedArray[index]}`).addClass(`${matchedArray[index]} slide-in-tr`)
   }
 }
 
 function resetMatchedColors() {
   for (index in matchedArray) {
-    $(`#${matchedArray[index]}`).removeClass(`${matchedArray[index]} roll-in-top`)
+    $(`#${matchedArray[index]}`).removeClass(`${matchedArray[index]} slide-in-tr`)
   }
   matchedArray = []
 }
