@@ -173,3 +173,8 @@ function layOutCards() {
 function deleteCards() {
   $('.card').remove();
 }
+
+function handleAudioIcon(event) {
+  console.log("hi")
+  console.dir(event.target)
+}

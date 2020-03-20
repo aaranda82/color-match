@@ -59,6 +59,10 @@ body{
   background-position: center;
 }
 
+.resetButton:active, .startButton:active{
+  transform: scale(0.9)
+}
+
 .gameArea {
   display: flex;
   flex-wrap: wrap;
@@ -88,7 +92,7 @@ body{
 .stats {
   text-align: center;
   font-family: 'Bowlby One SC';
-
+  
 }
 
 .statsHeader {
@@ -121,6 +125,14 @@ body{
   text-shadow: -1px 0 #ecf0f1, 0 1px #ecf0f1, 1px 0 #ecf0f1, 0 -1px #ecf0f1;
   cursor: pointer;
   z-index: 1;
+}
+
+.redStat:hover, .orangeStat:hover, .yellowStat:hover, .greenStat:hover, .chartreuseStat:hover, .blueStat:hover, .indigoStat:hover, .violetStat:hover, .blackStat:hover{
+  font-weight: bolder;
+}
+
+.redStat:active, .orangeStat:active, .yellowStat:active, .greenStat:active, .chartreuseStat:active, .blueStat:active, .indigoStat:active, .violetStat:active, .blackStat:active{
+  font-size: 1.5vw;
 }
 
 .spacer{
