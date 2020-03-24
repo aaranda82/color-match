@@ -4,10 +4,10 @@ body{
   margin: 0;
 }
 
-i{
+.soundIcon{
   color: gray;
-  font-size: 1em;
-  width: 100%;
+  font-size: 1vw;
+  display: block;
 }
 
 .root{

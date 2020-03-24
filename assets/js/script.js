@@ -24,24 +24,6 @@ function initializeApp() {
   $('.container').on('click', '.card', handleCardClick)
   $('.resetButton').click(resetGame);
   $('.startButton').click(startGame);
-  // $('#red').click(() => { red.play() })
-  // $('#orange').click(() => { orange.play() })
-  // $('#yellow').click(() => { yellow.play() })
-  // $('#green').click(() => { green.play() })
-  // $('#chartreuse').click(() => { lightGreen.play() })
-  // $('#indigo').click(() => { indigo.play() })
-  // $('#blue').click(() => { blue.play() })
-  // $('#violet').click(() => { violet.play() })
-  // $('#black').click(() => { black.play() })
-  handleMouseOver()
-}
-
-function handleMouseOver() {
-  const elementArray = cardArray.map((item) => {
-
-
-  })
-  return elementArray
 }
 
 function resetSelectedCrads() {
@@ -107,10 +89,10 @@ function handleCardClick(event) {
         $(`#${color}`).addClass(`${color}Stat pointer`)
         $(`#${color}`).hover(
           function () {
-            $(this).append(`<i class="fas fa-volume-up soundIcon"></i>`)
+            $(this).append(`<div style="display: block;" class="fas fa-volume-up soundIcon">`)
           },
           function () {
-            $(this).find(`i`).remove()
+            $(this).find(`div`).remove()
           })
         resetSelectedCrads()
         if (matches === max_matches) {
@@ -138,7 +120,6 @@ function handleCardClick(event) {
 }
 
 function removeHandlers() {
-  console.log('Hi')
   const elementArray = cardArray.map((item) => {
     $(`#${item}`).off('click').removeClass(`${item}Stat pointer`).unbind("mouseenter mouseleave")
   })
