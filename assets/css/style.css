@@ -3,6 +3,13 @@ body{
   background-size: cover;
   margin: 0;
 }
+
+i{
+  color: gray;
+  font-size: 1em;
+  width: 100%;
+}
+
 .root{
   display: flex;
 }
@@ -123,7 +130,6 @@ body{
   font-family: cursive;
   font-size: 2vw;
   text-shadow: -1px 0 #ecf0f1, 0 1px #ecf0f1, 1px 0 #ecf0f1, 0 -1px #ecf0f1;
-  cursor: pointer;
   z-index: 1;
 }
 

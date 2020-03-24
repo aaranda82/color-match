@@ -24,15 +24,24 @@ function initializeApp() {
   $('.container').on('click', '.card', handleCardClick)
   $('.resetButton').click(resetGame);
   $('.startButton').click(startGame);
-  $('#red').click(() => { red.play() })
-  $('#orange').click(() => { orange.play() })
-  $('#yellow').click(() => { yellow.play() })
-  $('#green').click(() => { green.play() })
-  $('#chartreuse').click(() => { lightGreen.play() })
-  $('#indigo').click(() => { indigo.play() })
-  $('#blue').click(() => { blue.play() })
-  $('#violet').click(() => { violet.play() })
-  $('#black').click(() => { black.play() })
+  // $('#red').click(() => { red.play() })
+  // $('#orange').click(() => { orange.play() })
+  // $('#yellow').click(() => { yellow.play() })
+  // $('#green').click(() => { green.play() })
+  // $('#chartreuse').click(() => { lightGreen.play() })
+  // $('#indigo').click(() => { indigo.play() })
+  // $('#blue').click(() => { blue.play() })
+  // $('#violet').click(() => { violet.play() })
+  // $('#black').click(() => { black.play() })
+  handleMouseOver()
+}
+
+function handleMouseOver() {
+  const elementArray = cardArray.map((item) => {
+
+
+  })
+  return elementArray
 }
 
 function resetSelectedCrads() {
@@ -94,6 +103,15 @@ function handleCardClick(event) {
         let color = firstCardClicked[0].children[1].classList[1]
         matchedArray.push(color)
         matchedColorSound(color)
+        $(`#${color}`).click(() => { matchedColorSound(color) })
+        $(`#${color}`).addClass(`${color}Stat pointer`)
+        $(`#${color}`).hover(
+          function () {
+            $(this).append(`<i class="fas fa-volume-up soundIcon"></i>`)
+          },
+          function () {
+            $(this).find(`i`).remove()
+          })
         resetSelectedCrads()
         if (matches === max_matches) {
           setTimeout(() => {
@@ -119,6 +137,14 @@ function handleCardClick(event) {
   showMatchedColors()
 }
 
+function removeHandlers() {
+  console.log('Hi')
+  const elementArray = cardArray.map((item) => {
+    $(`#${item}`).off('click').removeClass(`${item}Stat pointer`).unbind("mouseenter mouseleave")
+  })
+  return elementArray
+}
+
 function resetGame() {
   $('#winningModal').addClass('hidden');
   firstCardClicked = null;
@@ -126,7 +152,10 @@ function resetGame() {
   deleteCards();
   layOutCards();
   resetMatchedColors();
+  removeHandlers()
 }
+
+
 
 function startGame() {
   $('#openingModal').addClass('hidden')
@@ -134,13 +163,13 @@ function startGame() {
 
 function showMatchedColors() {
   for (index in matchedArray) {
-    $(`#${matchedArray[index]}`).addClass(`${matchedArray[index]} slide-in-tr`)
+    $(`#${matchedArray[index]}`).addClass(`${matchedArray[index]} slide -in -tr`)
   }
 }
 
 function resetMatchedColors() {
   for (index in matchedArray) {
-    $(`#${matchedArray[index]}`).removeClass(`${matchedArray[index]} slide-in-tr`)
+    $(`#${matchedArray[index]}`).removeClass(`${matchedArray[index]} slide -in -tr`)
   }
   matchedArray = []
 }
